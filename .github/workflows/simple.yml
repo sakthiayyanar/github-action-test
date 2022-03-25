@@ -1,14 +1,13 @@
-name : Shell Commands
+name : Container
 
-on: [push]
+on: push
 
 jobs:
-  run-shell-command:
+  node-docker:
     runs-on: ubuntu-latest
+    container: node:13.5.0-alpine3.10
     steps:
-      - name: echo a string
-        run: echo "Hello World"
-      - name: multiline script
-        run: |
+      - name : Log node container
+        run : |
           node -v
-          npm -v
+          cat /etc/os-release
